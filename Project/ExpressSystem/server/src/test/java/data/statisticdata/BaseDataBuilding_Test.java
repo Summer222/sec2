@@ -14,12 +14,21 @@ public class BaseDataBuilding_Test {
 
 	@Test
 	public void testStart() throws RemoteException {
+<<<<<<< HEAD
 		assertEquals(true,service.startBaseDataBuilding(true));
 //		assertEquals(true,service.startBaseDataBuilding(false));
 	}
     @Test
 	public void testEnd() throws RemoteException{
 		assertEquals(true,service.endBaseDataBuilding());	
+=======
+		//assertEquals(true,service.startBaseDataBuilding(true));
+		//assertEquals(true,service.startBaseDataBuilding(false));
+	}
+    @Test
+	public void testEnd() throws RemoteException{
+		//assertEquals(true,service.endBaseDataBuilding());
+>>>>>>> mjwyy/master
 	}
 
 }

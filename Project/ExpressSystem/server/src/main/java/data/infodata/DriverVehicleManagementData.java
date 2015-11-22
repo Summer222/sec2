@@ -14,28 +14,41 @@ public class DriverVehicleManagementData implements DriverVehicleManagementDataS
 	@Override
 	public boolean addDriver(DriverPO driver) throws RemoteException,
 			InterruptWithExistedElementException {
+<<<<<<< HEAD
 		// TODO Auto-generated method stub
+=======
+>>>>>>> mjwyy/master
 		return false;
 	}
 
 	@Override
 	public boolean addVehicle(VehiclePO vehicle) throws RemoteException,
 			InterruptWithExistedElementException {
+<<<<<<< HEAD
 		// TODO Auto-generated method stub
+=======
+>>>>>>> mjwyy/master
 		return false;
 	}
 
 	@Override
 	public boolean removeDriver(DriverPO driver) throws RemoteException,
 			ElementNotFoundException {
+<<<<<<< HEAD
 		// TODO Auto-generated method stub
+=======
+>>>>>>> mjwyy/master
 		return false;
 	}
 
 	@Override
 	public boolean removeVehicle(VehiclePO vehicle) throws RemoteException,
 			ElementNotFoundException {
+<<<<<<< HEAD
 		// TODO Auto-generated method stub
+=======
+		 
+>>>>>>> mjwyy/master
 		return false;
 	}
 
@@ -43,7 +56,11 @@ public class DriverVehicleManagementData implements DriverVehicleManagementDataS
 	public boolean modifyDriver(DriverPO originalDriver, DriverPO modified)
 			throws RemoteException, ElementNotFoundException,
 			InterruptWithExistedElementException {
+<<<<<<< HEAD
 		// TODO Auto-generated method stub
+=======
+		 
+>>>>>>> mjwyy/master
 		return false;
 	}
 
@@ -51,33 +68,53 @@ public class DriverVehicleManagementData implements DriverVehicleManagementDataS
 	public boolean modifyVehicle(VehiclePO originalVehicle, VehiclePO modified)
 			throws RemoteException, ElementNotFoundException,
 			InterruptWithExistedElementException {
+<<<<<<< HEAD
 		// TODO Auto-generated method stub
+=======
+		 
+>>>>>>> mjwyy/master
 		return false;
 	}
 
 	@Override
 	public ArrayList<DriverPO> getAllDriver() throws RemoteException {
+<<<<<<< HEAD
 		// TODO Auto-generated method stub
+=======
+		 
+>>>>>>> mjwyy/master
 		return null;
 	}
 
 	@Override
 	public ArrayList<VehiclePO> getAllVehicles() throws RemoteException {
+<<<<<<< HEAD
 		// TODO Auto-generated method stub
+=======
+		 
+>>>>>>> mjwyy/master
 		return null;
 	}
 
 	@Override
 	public ArrayList<DriverPO> inquireDriver(DriverPO keywords)
 			throws RemoteException, ElementNotFoundException {
+<<<<<<< HEAD
 		// TODO Auto-generated method stub
+=======
+		 
+>>>>>>> mjwyy/master
 		return null;
 	}
 
 	@Override
 	public ArrayList<VehiclePO> inquireVehicle(VehiclePO keywords)
 			throws RemoteException {
+<<<<<<< HEAD
 		// TODO Auto-generated method stub
+=======
+		 
+>>>>>>> mjwyy/master
 		return null;
 	}
 

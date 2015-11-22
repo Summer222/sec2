@@ -9,7 +9,10 @@ public class MockVehicle extends VehiclePO{
 	public MockVehicle(String carNumber, String hallNumber, File picture,
 			String firstUseTime) {
 		super(carNumber, hallNumber, picture, firstUseTime);
+<<<<<<< HEAD
 		// TODO Auto-generated constructor stub
+=======
+>>>>>>> mjwyy/master
 	}
 
 }

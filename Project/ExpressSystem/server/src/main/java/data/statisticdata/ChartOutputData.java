@@ -15,14 +15,20 @@ public class ChartOutputData implements ChartOutputDataService{
 	@Override
 	public BusinessStateChartPO getBusinessStateChart(BusinessStateChartPO po)
 			throws RemoteException {
+<<<<<<< HEAD
 		// TODO Auto-generated method stub
+=======
+>>>>>>> mjwyy/master
 		return null;
 	}
 
 	@Override
 	public CostAndProfitChartPO getCostAndProfitChart(CostAndProfitChartPO po)
 			throws RemoteException {
+<<<<<<< HEAD
 		// TODO Auto-generated method stub
+=======
+>>>>>>> mjwyy/master
 		return null;
 	}
 

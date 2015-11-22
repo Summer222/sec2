@@ -131,6 +131,7 @@ public class ArrivalNoteOnTransitPanel extends JPanel {
 		add(btnNewButton);	
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
 				ArrivalNoteOnTransitVO vo = new ArrivalNoteOnTransitVO(null,textField_1.getText(),textField.getText(),null,null);
 				//格式检查
 			    res = service.inputCenterArrivalDoc(vo);
@@ -143,6 +144,20 @@ public class ArrivalNoteOnTransitPanel extends JPanel {
 					checkstyleDialog checkstyle = new checkstyleDialog(res.getMessage());
 					checkstyle.setVisible(true);
 			}
+=======
+				//ArrivalNoteOnTransitVO vo = new ArrivalNoteOnTransitVO(null,textField_1.getText(),textField.getText(),null,null);
+				//格式检查
+			   // res = service.inputCenterArrivalDoc(vo);
+				//正确则信息填入那边
+				///if(res.isPass()){
+					//textField_5.setText(textField_1.getText());
+					///textField_6.setText(textField.getText());
+				//}
+				/*else{
+					checkstyleDialog checkstyle = new checkstyleDialog(res.getMessage());
+					checkstyle.setVisible(true);
+			}*/
+>>>>>>> mjwyy/master
 			}
 		});
 												

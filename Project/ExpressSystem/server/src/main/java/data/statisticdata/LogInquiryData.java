@@ -14,7 +14,10 @@ public class LogInquiryData implements LogInquiryDataService{
 	@Override
 	public ArrayList<LogEntryPO> findLogEntries(String time,
 			ArrayList<String> keyword) throws RemoteException {
+<<<<<<< HEAD
 		// TODO Auto-generated method stub
+=======
+>>>>>>> mjwyy/master
 		return null;
 	}
 

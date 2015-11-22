@@ -1,5 +1,11 @@
 package po;
 
+<<<<<<< HEAD
+=======
+import util.enums.Authority;
+import vo.UserVO;
+
+>>>>>>> mjwyy/master
 import java.io.Serializable;
 
 /**
@@ -11,6 +17,7 @@ public class UserPO implements Serializable {
 
 	private static final long serialVersionUID = 3758641678884304726L;
 
+<<<<<<< HEAD
 	public static final int SYSTEM_MANAGER = 0;
 	public static final int MANAGER = 1;
 	public static final int ACCOUNTANT_HIGH = 2;
@@ -56,4 +63,59 @@ public class UserPO implements Serializable {
 	}
 	
 	
+=======
+    /**
+     * 账号
+     */
+    private String Account;
+
+    /**
+     * 密码
+     */
+    private String Password;
+
+    /**
+     * 权限
+     */
+    private Authority Authority;
+
+    /**
+     * 构造方法
+     * @param Account
+     * @param Password
+     * @param authority
+     */
+    public UserPO(String Account, String Password, int authority){
+        this.Account = Account;
+        this.Password = Password;
+        this.Authority = Authority.getAuthObject(authority);
+    }
+
+    public UserPO(){
+
+    }
+
+    @Override
+    public String toString(){
+        return "UserPO: 账户:"+ Account +" 密码:"+ Password +" 权限="+ Authority;
+    }
+
+    public String getAccount() {
+        return Account;
+    }
+
+    public String getPassword() {
+        return Password;
+    }
+
+    public int getAuthority() {
+        return Authority.getAuthority();
+    }
+
+	public Object toVO() {
+		UserVO vo = new UserVO(Account, Password, Authority);
+		return vo;
+	}
+
+>>>>>>> mjwyy/master
 }

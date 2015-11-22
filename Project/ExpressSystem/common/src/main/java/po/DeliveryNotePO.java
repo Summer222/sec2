@@ -6,10 +6,12 @@
 package po;
 
 import util.enums.DeliverCategory;
+import vo.DeliveryNoteVO;
+import vo.NoteVO;
 
 import java.io.Serializable;
 
-public class DeliveryNotePO implements Serializable {
+public class DeliveryNotePO extends NotePO implements Serializable {
 	/**
 	 *
 	 */
@@ -80,9 +82,13 @@ public class DeliveryNotePO implements Serializable {
 	 */
 	private String barCode;
 
+<<<<<<< HEAD
     public DeliveryNotePO(String senderName, String senderAddress, String senderTeleNumber, String receiverName,
                           String receiverAddress, String receiverTeleNumber, String name, int goodsNumber,
                           double weight, double volume, DeliverCategory category, double packPrice, String barCode) {
+=======
+    public DeliveryNotePO(String senderName, String senderAddress, String senderTeleNumber, String receiverName, String receiverAddress, String receiverTeleNumber, String name, int goodsNumber, double weight, double volume, DeliverCategory category, double packPrice, String barCode) {
+>>>>>>> mjwyy/master
         this.senderName = senderName;
         this.senderAddress = senderAddress;
         this.senderTeleNumber = senderTeleNumber;
@@ -114,14 +120,18 @@ public class DeliveryNotePO implements Serializable {
         return senderAddress;
     }
 
+<<<<<<< HEAD
     public void setSenderAddress(String senderAddress) {
         this.senderAddress = senderAddress;
     }
 
+=======
+>>>>>>> mjwyy/master
     public String getSenderTeleNumber() {
         return senderTeleNumber;
     }
 
+<<<<<<< HEAD
     public void setSenderTeleNumber(String senderTeleNumber) {
         this.senderTeleNumber = senderTeleNumber;
     }
@@ -164,22 +174,43 @@ public class DeliveryNotePO implements Serializable {
 
     public void setGoodsNumber(int goodsNumber) {
         this.goodsNumber = goodsNumber;
+=======
+    public String getReceiverName() {
+        return receiverName;
+>>>>>>> mjwyy/master
     }
 
-    public double getWeight() {
-        return weight;
+    public String getReceiverAddress() {
+        return receiverAddress;
     }
 
+<<<<<<< HEAD
     public void setWeight(double weight) {
         this.weight = weight;
     }
 
     public double getVolume() {
         return volume;
+=======
+    public String getReceiverTeleNumber() {
+        return receiverTeleNumber;
+>>>>>>> mjwyy/master
     }
 
     public void setVolume(double volume) {
         this.volume = volume;
+    }
+
+    public int getGoodsNumber() {
+        return goodsNumber;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public double getVolume() {
+        return volume;
     }
 
     public DeliverCategory getCategory() {
@@ -202,7 +233,15 @@ public class DeliveryNotePO implements Serializable {
         return barCode;
     }
 
+<<<<<<< HEAD
     public void setBarCode(String barCode) {
         this.barCode = barCode;
+=======
+    @Override
+    public NoteVO toVO() {
+        return new DeliveryNoteVO(this.senderName, this.senderAddress, this.senderTeleNumber, this.receiverName,
+                this.receiverAddress, this.receiverTeleNumber, this.name, this.goodsNumber, this.weight,
+                this.volume, this.category, this.packPrice, this.barCode);
+>>>>>>> mjwyy/master
     }
 }

@@ -1,5 +1,6 @@
 package dataservice.infodataservice;
 
+import java.io.Serializable;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import po.StaffPO;
 /**
 * @author River
 */
-public interface StaffOrganizationManagementDataService extends Remote {
+public interface StaffOrganizationManagementDataService extends Remote, Serializable {
 	/**
 	 * Data向数据库中添加对应StaffPO项
      *
@@ -69,7 +70,6 @@ public interface StaffOrganizationManagementDataService extends Remote {
 	 */
 	public boolean modifyStaff(StaffPO original,StaffPO modified)
 			throws RemoteException,ElementNotFoundException,InterruptWithExistedElementException;
-	// TODO 替换的参数一个还是两个问题
 	/**
 	 * Data将originalOrganizationPO数据替换为modifiedOrganizationPO
      *
@@ -86,7 +86,7 @@ public interface StaffOrganizationManagementDataService extends Remote {
 	/**
      * Data返回符合关键字的员工数据
      *
-	 * @param name
+	 * @param info
 	 * @return
 	 * @throws RemoteException
 	 * @throws ElementNotFoundException
@@ -97,7 +97,7 @@ public interface StaffOrganizationManagementDataService extends Remote {
 	/**
 	 * Data返回符合关键字的机构记录
      *
-	 * @param name
+	 * @param info
 	 * @return
 	 * @throws RemoteException
 	 * @throws ElementNotFoundException

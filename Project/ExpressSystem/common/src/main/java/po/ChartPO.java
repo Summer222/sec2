@@ -1,6 +1,9 @@
 package po;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+
+import util.enums.ChartType;
 
 import util.enums.ChartType;
 
@@ -20,9 +23,20 @@ public class ChartPO implements Serializable {
 	private String startTime;
 	private String endTime ;
 	private ChartType type;
+<<<<<<< HEAD
 	
 	
 	
 	
 	
+=======
+
+    private ArrayList<String> everyDay;
+
+    public ChartPO(ChartType type,String startTime, String endTime) {
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.type = type;
+    }
+>>>>>>> mjwyy/master
 }
