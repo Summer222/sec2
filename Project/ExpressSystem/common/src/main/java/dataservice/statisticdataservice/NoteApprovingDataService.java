@@ -1,7 +1,9 @@
 package dataservice.statisticdataservice;
 
+import java.io.Serializable;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import dataservice.exception.ElementNotFoundException;
@@ -13,7 +15,7 @@ import util.enums.DocType;
  * @author River
  *
  */
-public interface NoteApprovingDataService extends Remote{
+public interface NoteApprovingDataService extends Remote, Serializable {
 	
 	/**
 	 * 获得所有未审批NotePO
@@ -39,14 +41,14 @@ public interface NoteApprovingDataService extends Remote{
 	 * @return true for successful pass operation
 	 */
 	public boolean passDoc(NotePO docPO)
-			throws RemoteException, ElementNotFoundException;
-	
-	/**
+            throws RemoteException, ElementNotFoundException, SQLException;
+
+    /**
 	 * 搜索docPO并且否决之
 	 *
 	 * @param docPO
 	 * @return true for successful decline operation
 	 */
 	public boolean failDoc(NotePO docPO, String comment)
-			throws RemoteException, ElementNotFoundException;
+            throws RemoteException, ElementNotFoundException, SQLException;
 }

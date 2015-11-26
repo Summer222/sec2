@@ -9,6 +9,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import util.BarcodeAndState;
+import vo.ArrivalNoteOnTransitVO;
+import vo.NoteVO;
 
 public class ArrivalNoteOnTransitPO extends NotePO implements Serializable{
 	/**
@@ -76,4 +78,14 @@ public class ArrivalNoteOnTransitPO extends NotePO implements Serializable{
 		return BarcodeAndStates;
 	}
 
+    @Override
+    public NoteVO toVO() {
+        return new ArrivalNoteOnTransitVO(this.transferNumber, this.centerNumber,
+                this.date, this.departurePlace, BarcodeAndStates);
+    }
+
+    @Override
+    public String getID() {
+        return this.transferNumber;
+    }
 }

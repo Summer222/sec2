@@ -11,13 +11,25 @@ public enum Authority {
     DELIVERY_MAN(6),
     SYSTEM_MANAGER(7);
 
-    private int Authority;
+    private int intAuthority;
 
     Authority(int authority) {
-        this.Authority = authority;
+        this.intAuthority = authority;
     }
 
-    public int getAuthority() {
-        return Authority;
+    public int getIntAuthority() {
+        return intAuthority;
+    }
+    
+    /**
+     * 
+     * @param i
+     * @return null if the integer is beyond enum range
+     */
+    public static Authority getAuthObject(int i) {
+    	for(Authority a:values()) {
+    		if(a.intAuthority ==i) return a;
+    	}
+    	return null;
     }
 }

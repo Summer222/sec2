@@ -1,11 +1,13 @@
 package dataservice.logisticdataservice._Driver;
 
+import dataservice.exception.ElementNotFoundException;
 import dataservice.logisticdataservice.ArrivalNoteOnServiceDataService;
 import dataservice.logisticdataservice._Stub.ArrivalNoteOnServiceDataService_Stub;
 import po.ArrivalNoteOnServicePO;
 import util.BarcodeAndState;
 
 import java.rmi.RemoteException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -21,11 +23,7 @@ public class ArrivalNoteOnServiceDataService_Driver {
     public ArrivalNoteOnServiceDataService_Driver() {
     	ArrayList<BarcodeAndState> BarcodeAndStates=new ArrayList<BarcodeAndState>();
         pos = new ArrayList<ArrivalNoteOnServicePO>();
-        arrivalNoteOnServicePO = new ArrivalNoteOnServicePO("2011-11-11","250000201510130000000",
-        		"北京",BarcodeAndStates);
-        arrivalNoteOnServicePO2 = new ArrivalNoteOnServicePO("2011-11-11","250000201510130000001",
-        		"北京",BarcodeAndStates);
-        arrivalNoteOnServicePO3 = new ArrivalNoteOnServicePO("2011-11-11","250000201510130000002",
+        arrivalNoteOnServicePO = new ArrivalNoteOnServicePO("2011-11-11",true,"250000201510130000000",
         		"北京",BarcodeAndStates);
         pos.add(arrivalNoteOnServicePO);
         pos.add(arrivalNoteOnServicePO2);
@@ -33,21 +31,14 @@ public class ArrivalNoteOnServiceDataService_Driver {
     }
 
 
-    public void drive(ArrivalNoteOnServiceDataService arrivalNoteOnServiceDataService) throws RemoteException {
-        if(arrivalNoteOnServiceDataService.insertArrivalNote(arrivalNoteOnServicePO));
-        	System.out.println("insert succeed");
-        if(arrivalNoteOnServiceDataService.insertArrivalNote(arrivalNoteOnServicePO2));
-        	System.out.println("insert succeed");
-        arrivalNoteOnServiceDataService.findArrivalNote(arrivalNoteOnServicePO);
-        arrivalNoteOnServiceDataService.findArrivalNote(arrivalNoteOnServicePO2);
-        arrivalNoteOnServiceDataService.findAllArrivalNote();
-        if(arrivalNoteOnServiceDataService.deleteArrivalNote(arrivalNoteOnServicePO));
-        	System.out.println("delete succeed");
-        if(arrivalNoteOnServiceDataService.updateArrivalNote(arrivalNoteOnServicePO3));
-        	System.out.println("update succeed");
+    public void drive(ArrivalNoteOnServiceDataService arrivalNoteOnServiceDataService) throws RemoteException, SQLException, ElementNotFoundException {
+        if (arrivalNoteOnServiceDataService.insertArrivalNote(arrivalNoteOnServicePO).isPass()) ;
+        System.out.println("insert succeed");
+        if (arrivalNoteOnServiceDataService.insertArrivalNote(arrivalNoteOnServicePO2).isPass()) ;
+        System.out.println("insert succeed");
     }
 
-    public static void main(String[] args) throws RemoteException {
+    public static void main(String[] args) throws RemoteException, SQLException, ElementNotFoundException {
         ArrivalNoteOnServiceDataService stub = new ArrivalNoteOnServiceDataService_Stub();
         ArrivalNoteOnServiceDataService_Driver driver = new ArrivalNoteOnServiceDataService_Driver();
         driver.drive(stub);

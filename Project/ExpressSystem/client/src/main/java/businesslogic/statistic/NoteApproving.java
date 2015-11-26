@@ -9,6 +9,7 @@ import util.enums.DocType;
 import vo.NoteVO;
 
 import java.rmi.RemoteException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -30,12 +31,13 @@ public class NoteApproving implements NoteApprovingBLService {
         ArrayList<NotePO> notePOs;
         try {
             notePOs = dataService.getAllDoc();
-            // TODO po转化为VO的问题 VO拖到common里面
             for (NotePO po:notePOs){
-
+                NoteVO vo = po.toVO();
+                noteVOArrayList.add(vo);
             }
         } catch (RemoteException e) {
             e.printStackTrace();
+            return null;
         }
         return noteVOArrayList;
     }
@@ -46,12 +48,13 @@ public class NoteApproving implements NoteApprovingBLService {
         ArrayList<NotePO> notePOs;
         try {
             notePOs = dataService.getDocByType(type);
-            // TODO po转化为VO的问题
             for (NotePO po:notePOs){
-
+                NoteVO vo = po.toVO();
+                noteVOArrayList.add(vo);
             }
         } catch (RemoteException e) {
             e.printStackTrace();
+            return null;
         }
         return noteVOArrayList;
     }
@@ -71,13 +74,9 @@ public class NoteApproving implements NoteApprovingBLService {
             e.printStackTrace();
         } catch (ElementNotFoundException e) {
             e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-    }
-
-    //TODO 此接口方法多余
-    @Override
-    public void failDoc(NoteVO docVO) {
-
     }
 
     @Override
@@ -87,6 +86,8 @@ public class NoteApproving implements NoteApprovingBLService {
         } catch (RemoteException e) {
             e.printStackTrace();
         } catch (ElementNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

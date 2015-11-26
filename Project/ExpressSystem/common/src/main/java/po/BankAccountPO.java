@@ -1,13 +1,14 @@
 package po;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
+
+import vo.BankAccountVO;
 
 public class BankAccountPO implements Serializable {
 	public BankAccountPO(){
 		
 	}
-	public BankAccountPO(String name, String number, BigDecimal balance) {
+	public BankAccountPO(String name, String number, String balance) {
 		super();
 		this.name = name;
 		this.number = number;
@@ -30,9 +31,9 @@ public class BankAccountPO implements Serializable {
 	private String number = null;
 	
 	/**
-	 * 为保证精度，余额用BigDecimal表示
+	 * 余额
 	 */
-	private BigDecimal balance = null;
+	private String balance = null;
 
 	public String getName() {
 		return name;
@@ -50,12 +51,17 @@ public class BankAccountPO implements Serializable {
 		this.number = number;
 	}
 
-	public BigDecimal getBalance() {
+	public String getBalance() {
 		return balance;
 	}
 
-	public void setBalance(BigDecimal balance) {
+	public void setBalance(String balance) {
 		this.balance = balance;
+	}
+	
+	public Object toVO() {
+		BankAccountVO vo = new BankAccountVO(name, number, balance);
+		return vo;
 	}
 	
 }

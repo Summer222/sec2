@@ -5,9 +5,18 @@
  */
 package po;
 
+import vo.DeliverNoteOnServiceVO;
+import vo.NoteVO;
+
 import java.util.ArrayList;
 
 public class DeliverNoteOnServicePO extends NotePO{
+
+    /**
+     * 唯一ID
+     */
+    private String DeliverNoteOnServiceID;
+
 	/**
 	 * 货物到达日期
 	 */
@@ -23,7 +32,7 @@ public class DeliverNoteOnServicePO extends NotePO{
 	 */
 	private String DeliveryMan;
 
-	public String getDate() {
+    public String getDate() {
 		return date;
 	}
 
@@ -35,13 +44,23 @@ public class DeliverNoteOnServicePO extends NotePO{
 		return DeliveryMan;
 	}
 
-	public DeliverNoteOnServicePO(String date, ArrayList<String> barCode,
+	public DeliverNoteOnServicePO(String deliverNoteOnServiceID,String date, ArrayList<String> barCode,
 			String deliveryMan) {
 		super();
+        this.DeliverNoteOnServiceID = deliverNoteOnServiceID;
 		this.date = date;
 		BarCode = barCode;
 		DeliveryMan = deliveryMan;
 	}
 
+    @Override
+    public String getID() {
+        return this.DeliverNoteOnServiceID;
+    }
 
+    @Override
+    public NoteVO toVO() {
+        return new DeliverNoteOnServiceVO(this.DeliverNoteOnServiceID,
+                date,BarCode,DeliveryMan);
+    }
 }

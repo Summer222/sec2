@@ -1,88 +1,37 @@
 package vo;
 
-public class DriverVO {
-	
-	/**
-	 * 司机编号
-	 */
-	private String driverNum; 
-    
-	/**
-	 * 姓名
-	 */
-	private String name;
-	
-	/**
-	 * 出生日期
-	 */
-	private String birthday;
-	
-	/**
-	 * 身份证号
-	 */
-	private String IDNum;
-	
-	/**
-	 * 手机号
-	 */
-	private String phoneNum;
-	
-	/**
-	 * 性别
-	 */
-	private String sex;
-	
-	/**
-	 * 行驶证期限
-	 */
-	private String drvingLicencePeriod;
-	
-	/**
-	 * 构造方法
-	 * @param cityNum
-	 * @param name
-	 * @param birthday
-	 * @param IDNum
-	 * @param phoneNum
-	 * @param sex
-	 * @param drvingLicencePeriod
-	 */
-     public DriverVO(String driverNum,String name,String birthday,
-    		 String IDNum,String phoneNum,String sex,String drvingLicencePeriod){
-    	 this.driverNum = driverNum;
-    	 this.name = name;
-    	 this.IDNum = IDNum;
-    	 this.birthday = birthday;
-    	 this.phoneNum = phoneNum;
-    	 this.sex = sex;
-    	 this.drvingLicencePeriod = drvingLicencePeriod;
-     }
+import po.DriverPO;
+import po.StaffPO;
+import util.FormatCheck;
+import util.ResultMsg;
+import util.enums.StaffType;
 
-	public String getDriverNum() {
-		return driverNum;
+public class DriverVO extends StaffVO {
+
+    /**
+     * 驾照过期时间
+     */
+    String licenseDate = null;
+
+    public DriverVO(String staffID,String name, String sex, String organization, StaffType postion, String IDNum,
+                    int workingtime, String phoneNum, String wage, String licenseDate) {
+        super(staffID,name, sex, organization, postion, IDNum, workingtime, phoneNum, wage);
+        this.licenseDate = licenseDate;
+    }
+
+    public Object toPO() {
+    	DriverPO po = new DriverPO((StaffPO) super.toPO(), licenseDate);
+    	
+        return po;
 	}
-
-	public String getName() {
-		return name;
-	}
-
-	public String getBirthday() {
-		return birthday;
-	}
-
-	public String getIDNum() {
-		return IDNum;
-	}
-
-	public String getPhoneNum() {
-		return phoneNum;
-	}
-
-	public String getSex() {
-		return sex;
-	}
-
-	public String getDrvingLicencePeriod() {
-		return drvingLicencePeriod;
+	
+	public ResultMsg checkFormat(){
+		
+		ResultMsg msg = super.checkFormat();
+		if(!msg.isPass()) return msg;
+		
+		msg = FormatCheck.isDate(licenseDate);
+		return msg;
+		
 	}
 }

@@ -22,8 +22,20 @@
       <dependency>
           <groupId>junit</groupId>
           <artifactId>junit</artifactId>
-          <version>4.11</version>
+          <version>4.1</version>
           <scope>test</scope>
+      </dependency>
+      <dependency>
+          <groupId>org.apache.poi</groupId>
+          <artifactId>poi</artifactId>
+          <version>3.9</version>
+      </dependency>
+      <dependency>
+          <groupId>beautyeye</groupId>
+          <artifactId>beautyeye_lnf</artifactId>
+          <version>1.0.0</version>
+          <scope>system</scope>
+          <systemPath>${project.basedir}/lib/beautyeye_lnf.jar</systemPath>
       </dependency>
   </dependencies>
   

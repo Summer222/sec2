@@ -9,15 +9,18 @@ package po;
 import java.io.Serializable;
 
 import util.enums.DocState;
+import vo.NoteVO;
 
-public class NotePO implements Serializable{
+public abstract class NotePO implements Serializable{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 5768739830941620932L;
+
 	// 创建这个单据的业务员信息
-	private String userName;
+    private StaffPO userName;
+
 	private DocState state;
 
 	public DocState getState() {
@@ -28,12 +31,20 @@ public class NotePO implements Serializable{
 		this.state = state;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+    public StaffPO getUserName() {
+        return userName;
 	}
 
-	public String getUserName() {
-		return userName;
-	}
+    public NoteVO toVO(){
+        return null;
+    }
+
+    public String getName() {
+        return this.getClass().getSimpleName();
+    }
+
+    public String getID() {
+        return null;
+    }
 
 }
