@@ -3,11 +3,11 @@ package util;
 /**
  * 输入寄件单信息后系统返回的信息
  * 包括 1:运费 2:预计到达日期
- * 
+ *
  * @author kylin
  *
  */
-public class sendDocMsg extends ResultMsg{
+public class SendDocMsg extends ResultMsg {
 
     /**
      * 运费, 根据运费与包装费和获得
@@ -19,7 +19,7 @@ public class sendDocMsg extends ResultMsg{
      */
     private String predectedDate;
 
-    public sendDocMsg(boolean pass, String message, double price, String predectedDate) {
+    public SendDocMsg(boolean pass, String message, double price, String predectedDate) {
         super(pass, message);
         this.price = price;
         this.predectedDate = predectedDate;
@@ -33,3 +33,4 @@ public class sendDocMsg extends ResultMsg{
         return predectedDate;
     }
 }
+

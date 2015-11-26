@@ -2,6 +2,11 @@ package vo;
 
 import java.util.ArrayList;
 
+import po.OrganizationPO;
+import util.FormatCheck;
+import util.ResultMsg;
+import util.enums.OrganizationType;
+
 public class OrganizationInfoVO {
 	
 	/**
@@ -17,7 +22,7 @@ public class OrganizationInfoVO {
 	/**
 	 * 机构类型
 	 */
-	private String type;
+	private OrganizationType type;
 	
     /**
      * 机构内人员信息
@@ -28,7 +33,7 @@ public class OrganizationInfoVO {
 	 * @param organizationNum
 	 * @param staffinfo
 	 */
-	public OrganizationInfoVO(String organizationNum,String type,String name,ArrayList<StaffVO> staffinfo){
+	public OrganizationInfoVO(String organizationNum,OrganizationType type,String name,ArrayList<StaffVO> staffinfo){
 		this.organizationNum = organizationNum;
 		this.staffinfo = staffinfo;
 		this.type = type;
@@ -43,7 +48,7 @@ public class OrganizationInfoVO {
 		return name;
 	}
 
-	public String getType() {
+	public OrganizationType getType() {
 		return type;
 	}
 
@@ -51,5 +56,27 @@ public class OrganizationInfoVO {
 		return staffinfo;
 	}
 
+	public ResultMsg checkFormat() {
+		
+		ResultMsg msg = null;
+		
+		msg = FormatCheck.isOrganizationName(name);
+		if(!msg.isPass()) return msg;
+		
+		if(type==OrganizationType.SERVICE_HALL) {
+			msg = FormatCheck.isServiceHallNumber(organizationNum);
+		} else if(type==OrganizationType.TRANSIT_CENTER) {
+			msg = FormatCheck.isTransitCenterNumber(organizationNum);
+		} else {
+			msg = new ResultMsg(true);
+		}
+		
+		return msg;
+	}
+	
+	public Object toPO() {
+		OrganizationPO po = new OrganizationPO(organizationNum, type, name);
+		return po;
+	}
 
 }

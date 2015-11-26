@@ -9,6 +9,7 @@ import util.enums.DocType;
 import vo.NoteVO;
 
 import java.rmi.RemoteException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -73,13 +74,9 @@ public class NoteApproving implements NoteApprovingBLService {
             e.printStackTrace();
         } catch (ElementNotFoundException e) {
             e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-    }
-
-    //TODO 接口方法多余
-    @Override
-    public void failDoc(NoteVO docVO) {
-
     }
 
     @Override
@@ -89,6 +86,8 @@ public class NoteApproving implements NoteApprovingBLService {
         } catch (RemoteException e) {
             e.printStackTrace();
         } catch (ElementNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

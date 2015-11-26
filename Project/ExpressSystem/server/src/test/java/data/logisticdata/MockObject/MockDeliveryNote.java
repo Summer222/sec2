@@ -7,10 +7,6 @@ import util.enums.DeliverCategory;
  * Created by kylin on 15/11/10.
  */
 public class MockDeliveryNote extends DeliveryNotePO{
-<<<<<<< HEAD
-
-=======
->>>>>>> mjwyy/master
 
     public MockDeliveryNote(String senderName, String senderAddress, String senderTeleNumber,
                             String receiverName, String receiverAddress, String receiverTeleNumber,

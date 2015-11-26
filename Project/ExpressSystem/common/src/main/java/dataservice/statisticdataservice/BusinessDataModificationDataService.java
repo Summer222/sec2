@@ -13,11 +13,7 @@ import util.enums.PriceType;
 /**
  * @author River
  */
-<<<<<<< HEAD
-public interface BusinessDataModificationDataService extends Remote {
-=======
 public interface BusinessDataModificationDataService extends Remote, Serializable {
->>>>>>> mjwyy/master
 
 
     /**

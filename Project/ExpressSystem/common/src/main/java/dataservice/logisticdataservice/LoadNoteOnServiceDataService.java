@@ -8,30 +8,17 @@ package dataservice.logisticdataservice;
 import java.io.Serializable;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
+import dataservice.exception.ElementNotFoundException;
 import po.LoadNoteOnServicePO;
+import util.ResultMsg;
 
 public interface LoadNoteOnServiceDataService extends Remote, Serializable {
 	/**
 	 * 在数据库中增加一个po记录
 	 */
-	public boolean insert(LoadNoteOnServicePO po) throws RemoteException;
-	/**
-	 * 在数据库中删除一个po记录
-	 */
-	public boolean delete(LoadNoteOnServicePO po) throws RemoteException;
-	/**
-	 * 在数据库中更新一个po记录
-	 */
-	public boolean update(LoadNoteOnServicePO po) throws RemoteException;
-	/**
-	 * 查找返回相应的LoadNoteOnServicePO结果
-	 */
-	public ArrayList<LoadNoteOnServicePO> find(LoadNoteOnServicePO po) throws RemoteException;
-	
-	/**
-	 * 返回所有的LoadNoteOnServicePO
-	 */
-	public ArrayList<LoadNoteOnServicePO> findAll() throws RemoteException;
+    ResultMsg insert(LoadNoteOnServicePO po) throws RemoteException, SQLException, ElementNotFoundException;
+
 }

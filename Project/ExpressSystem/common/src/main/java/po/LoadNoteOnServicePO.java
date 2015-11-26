@@ -108,13 +108,10 @@ public class LoadNoteOnServicePO extends NotePO implements Serializable{
     public void setTransferPrice(double transferPrice) {
         this.transferPrice = transferPrice;
     }
-<<<<<<< HEAD
-=======
 
     @Override
     public NoteVO toVO() {
         return new LoadNoteOnServiceVO(this.date, this.hallNumber, this.transpotationNumber,
                 this.Destination, this.carNumber, this.guardMan, this.supercargoMan, this.barcodes);
     }
->>>>>>> mjwyy/master
 }

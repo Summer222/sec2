@@ -23,11 +23,4 @@ public class MockArrivalNoteOnService extends ArrivalNoteOnServicePO {
         super(date,true, transferNumber,from,null);
     }
 
-<<<<<<< HEAD
-    public MockArrivalNoteOnService(String date, String transferNumber, String from){
-        super(date,transferNumber,from,null);
-    }
-
-=======
->>>>>>> mjwyy/master
 }

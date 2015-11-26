@@ -1,9 +1,7 @@
 package connection;
 
-import data.dao.DataBaseFactoryMysqlImpl;
-import data.dao.DatabaseFactory;
-import data.infodata.SystemUserManagementData;
-import data.infodata.UserDAOProxy;
+import data.database.DatabaseFactoryMysqlImpl;
+import data.database.DatabaseFactory;
 import dataservice.commoditydataservice.InventoryDataService;
 import dataservice.commoditydataservice.StorageInDataService;
 import dataservice.commoditydataservice.StorageOutDataService;
@@ -18,16 +16,14 @@ import dataservice.logisticdataservice.*;
 import dataservice.statisticdataservice.*;
 
 import java.io.Serializable;
-import java.net.MalformedURLException;
-import java.rmi.Naming;
-import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by kylin on 15/11/10.
+ *
+ * provider应该也是单例的,多个客户端,但只有一个provider
  */
 public class RMIObjectProvider extends UnicastRemoteObject implements RMIObjectProviderService {
 
@@ -41,7 +37,7 @@ public class RMIObjectProvider extends UnicastRemoteObject implements RMIObjectP
     }
 
     private void initiateMap() throws RemoteException {
-        DatabaseFactory databaseFactory = DataBaseFactoryMysqlImpl.getInstance();
+        DatabaseFactory databaseFactory = DatabaseFactoryMysqlImpl.getInstance();
 
         //commodity
         InventoryDataService inventoryDataService = databaseFactory.getInventoryDataService();
@@ -107,12 +103,8 @@ public class RMIObjectProvider extends UnicastRemoteObject implements RMIObjectP
         System.out.println("RMIObjectProvider-objMap 初始化完毕");
     }
 
-<<<<<<< HEAD
-    public Object getObjectByName(String name) {
-=======
     @Override
     public Object getObjectByName(String name) throws RemoteException {
->>>>>>> mjwyy/master
         return objMap.get(name);
     }
 }

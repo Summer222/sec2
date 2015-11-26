@@ -18,9 +18,4 @@ public class MockLoadNoteOnTransit extends LoadNoteOnTransitPO {
                                  String destination, String carNumber){
         super(null, transpotationNumber, destination, carNumber, null, null, null,null);
     }
-
-    public MockLoadNoteOnTransit(String transpotationNumber,
-                                 String destination, String carNumber){
-        super(null, transpotationNumber, destination, carNumber, null, null, null);
-    }
 }

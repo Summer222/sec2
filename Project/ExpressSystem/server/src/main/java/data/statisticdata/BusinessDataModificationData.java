@@ -40,11 +40,7 @@ public class BusinessDataModificationData implements BusinessDataModificationDat
 	@Override
 	public boolean setDistance(DistancePO distancePO) throws RemoteException,
 			ElementNotFoundException {
-<<<<<<< HEAD
-		// TODO Auto-generated method stub
-=======
 		 
->>>>>>> mjwyy/master
 		return false;
 		
 	}
@@ -53,11 +49,7 @@ public class BusinessDataModificationData implements BusinessDataModificationDat
 	public DistancePO getDistance(DistancePO distancePO) throws RemoteException,
 			ElementNotFoundException {
 				return distancePO;
-<<<<<<< HEAD
-		// TODO Auto-generated method stub
-=======
 		 
->>>>>>> mjwyy/master
 		
 	}
 	
